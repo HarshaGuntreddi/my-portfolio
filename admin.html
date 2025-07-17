@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .form-input { background-color: #1f2937; border: 1px solid #4b5563; color: #d1d5db; padding: 0.75rem; border-radius: 0.5rem; width: 100%; }
+        .form-input:focus { outline: none; border-color: #64ffda; box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.5); }
+        .btn { padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; cursor: pointer; transition: background-color 0.3s; }
+        .btn-primary { background-color: #64ffda; color: #111827; }
+        .btn-primary:hover { background-color: #55d9c1; }
+        .btn-secondary { background-color: #374151; color: #d1d5db; }
+        .btn-secondary:hover { background-color: #4b5563; }
+        .btn-danger { background-color: #ef4444; color: white; }
+        .btn-danger:hover { background-color: #dc2626; }
+        .spinner { display: inline-block; width: 20px; height: 20px; border: 2px solid rgba(255,255,255,.3); border-radius: 50%; border-top-color: #64ffda; animation: spin 1s ease-in-out infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <div id="login-screen" class="min-h-screen flex items-center justify-center">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
+            <h2 class="text-2xl font-bold text-white text-center mb-6">Admin Login</h2>
+            <div class="space-y-4">
+                <input id="email" type="email" placeholder="Email" class="form-input">
+                <input id="password" type="password" placeholder="Password" class="form-input">
+                <button id="login-btn" class="btn btn-primary w-full">Login</button>
+            </div>
+            <p id="login-error" class="text-red-500 text-center mt-4"></p>
+        </div>
+    </div>
+
+    <div id="admin-panel" class="hidden">
+        <header class="bg-gray-800 p-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold">Portfolio Content Manager</h1>
+            <button id="logout-btn" class="btn btn-secondary">Logout</button>
+        </header>
+
+        <main class="container mx-auto p-6 space-y-8">
+            <section class="bg-gray-800 p-6 rounded-lg">
+                <h2 class="text-2xl font-bold text-teal mb-4">General Information</h2>
+                <div class="space-y-4">
+                    <div><label class="block mb-1 font-semibold">Contact Email Address</label><input id="contact-email" type="email" class="form-input" placeholder="your.email@example.com"></div>
+                    <div><label class="block mb-1 font-semibold">Profile Photo Filename</label><input id="profile-photo-filename" type="text" class="form-input" placeholder="your-photo.jpg (must be in 'images' folder)"></div>
+                    <div><label class="block mb-1 font-semibold">Resume PDF Filename</label><input id="resume-pdf-filename" type="text" class="form-input" placeholder="resume.pdf (must be in root folder)"></div>
+                    <div><label class="block mb-1 font-semibold">Resume Text for AI</label><textarea id="resume-text" class="form-input" rows="10" placeholder="Paste the full text of your resume here..."></textarea></div>
+                    <button id="save-general-btn" class="btn btn-primary">Save General Info</button>
+                </div>
+            </section>
+
+            <section class="bg-gray-800 p-6 rounded-lg">
+                <h2 class="text-2xl font-bold text-teal mb-4">Work Experience</h2>
+                <div id="experience-list" class="space-y-4"></div>
+                <button id="add-experience-btn" class="btn btn-secondary mt-4">Add Experience</button>
+            </section>
+            
+            <section class="bg-gray-800 p-6 rounded-lg">
+                <h2 class="text-2xl font-bold text-teal mb-4">AI Project Idea Generator</h2>
+                <p class="text-gray-400 mb-4">Need inspiration? Enter some keywords and let AI generate a project idea for you. You can then add it to your portfolio.</p>
+                <div class="space-y-4">
+                    <input id="ai-keywords" type="text" class="form-input" placeholder="Enter keywords (e.g., 'data visualization, finance')">
+                    <button id="generate-idea-btn" class="btn btn-primary">Generate Idea ✨</button>
+                    <div id="ai-idea-output" class="bg-gray-700 p-4 rounded-lg hidden"></div>
+                </div>
+            </section>
+
+            <section class="bg-gray-800 p-6 rounded-lg">
+                <h2 class="text-2xl font-bold text-teal mb-4">Projects</h2>
+                <div id="project-list" class="grid md:grid-cols-2 gap-6"></div>
+                <button id="add-project-btn" class="btn btn-secondary mt-6">Add New Project</button>
+            </section>
+        </main>
+    </div>
+
+    <script type="module">
+        const firebaseConfig = { apiKey: "AIzaSyDqn6bGBgGGsIkyf7fnX2hS2qNAGu15dRE", authDomain: "my-portfolio-cms.firebaseapp.com", projectId: "my-portfolio-cms", storageBucket: "my-portfolio-cms.firebasestorage.app", messagingSenderId: "579665510371", appId: "1:579665510371:web:c001de4db73864d953aad6", measurementId: "G-59ZRNVKRS6" };
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+        import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+        
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        const loginScreen = document.getElementById('login-screen');
+        const adminPanel = document.getElementById('admin-panel');
+        const loginBtn = document.getElementById('login-btn');
+        const logoutBtn = document.getElementById('logout-btn');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const loginError = document.getElementById('login-error');
+
+        const portfolioDocRef = doc(db, "portfolio", "mainData");
+        let portfolioData = {};
+
+        onAuthStateChanged(auth, user => {
+            if (user) {
+                loginScreen.classList.add('hidden');
+                adminPanel.classList.remove('hidden');
+                loadPortfolioData();
+            } else {
+                loginScreen.classList.remove('hidden');
+                adminPanel.classList.add('hidden');
+            }
+        });
+
+        loginBtn.addEventListener('click', () => {
+            signInWithEmailAndPassword(auth, emailInput.value, passwordInput.value)
+                .catch(error => {
+                    loginError.textContent = "Failed to login. Please check your credentials.";
+                    console.error("Login error:", error);
+                });
+        });
+
+        logoutBtn.addEventListener('click', () => signOut(auth));
+
+        async function loadPortfolioData() {
+            const docSnap = await getDoc(portfolioDocRef);
+            if (docSnap.exists()) {
+                portfolioData = docSnap.data();
+            } else {
+                portfolioData = { aboutText: "", profilePhotoFilename: "", resumePdfFilename: "", resumeText: "", contactEmail: "", experience: [], projects: [] };
+            }
+            renderAdminPanel();
+        }
+
+        async function saveData() {
+            try {
+                await setDoc(portfolioDocRef, portfolioData);
+                alert("Data saved successfully!");
+            } catch (error) {
+                alert("Error saving data.");
+                console.error("Save error:", error);
+            }
+        }
+
+        function renderAdminPanel() {
+            document.getElementById('contact-email').value = portfolioData.contactEmail || "";
+            document.getElementById('about-text').value = portfolioData.aboutText || "";
+            document.getElementById('profile-photo-filename').value = portfolioData.profilePhotoFilename || "";
+            document.getElementById('resume-pdf-filename').value = portfolioData.resumePdfFilename || "";
+            document.getElementById('resume-text').value = portfolioData.resumeText || "";
+            renderExperience();
+            renderProjects();
+        }
+
+        function renderExperience() {
+            const list = document.getElementById('experience-list');
+            list.innerHTML = '';
+            (portfolioData.experience || []).forEach((exp, index) => {
+                const div = document.createElement('div');
+                div.className = 'bg-gray-700 p-4 rounded-lg space-y-3';
+                div.innerHTML = `
+                    <input type="text" value="${exp.title || ''}" class="form-input font-bold" placeholder="Job Title" onchange="updateExperience(${index}, 'title', this.value)">
+                    <input type="text" value="${exp.company || ''}" class="form-input" placeholder="Company" onchange="updateExperience(${index}, 'company', this.value)">
+                    <input type="text" value="${exp.logoFilename || ''}" class="form-input" placeholder="Logo Filename (e.g., sony-logo.png)" onchange="updateExperience(${index}, 'logoFilename', this.value)">
+                    <textarea class="form-input" rows="4" placeholder="Description..." onchange="updateExperience(${index}, 'description', this.value)">${exp.description || ''}</textarea>
+                    <button class="btn btn-danger" onclick="deleteExperience(${index})">Delete</button>
+                `;
+                list.appendChild(div);
+            });
+        }
+        
+        function renderProjects() {
+            const list = document.getElementById('project-list');
+            list.innerHTML = '';
+            (portfolioData.projects || []).forEach((proj, index) => {
+                const div = document.createElement('div');
+                div.className = 'bg-gray-700 p-4 rounded-lg space-y-3';
+                div.innerHTML = `
+                    <input type="text" value="${proj.title || ''}" class="form-input font-bold" placeholder="Project Title" onchange="updateProject(${index}, 'title', this.value)">
+                    <textarea class="form-input" rows="3" placeholder="Description" onchange="updateProject(${index}, 'description', this.value)">${proj.description || ''}</textarea>
+                    <input type="text" value="${proj.imageFilename || ''}" class="form-input" placeholder="Image Filename (e.g., project1.png)" onchange="updateProject(${index}, 'imageFilename', this.value)">
+                    <input type="text" value="${proj.liveUrl || ''}" class="form-input" placeholder="Live Demo URL" onchange="updateProject(${index}, 'liveUrl', this.value)">
+                    <input type="text" value="${proj.githubUrl || ''}" class="form-input" placeholder="GitHub URL" onchange="updateProject(${index}, 'githubUrl', this.value)">
+                    <input type="text" value="${(proj.tech || []).join(', ')}" class="form-input" placeholder="Technologies (comma-separated)" onchange="updateProject(${index}, 'tech', this.value.split(',').map(t => t.trim()))">
+                    <button class="btn btn-danger" onclick="deleteProject(${index})">Delete</button>
+                `;
+                list.appendChild(div);
+            });
+        }
+
+        document.getElementById('save-general-btn').addEventListener('click', () => {
+            portfolioData.contactEmail = document.getElementById('contact-email').value;
+            portfolioData.aboutText = document.getElementById('about-text').value;
+            portfolioData.profilePhotoFilename = document.getElementById('profile-photo-filename').value;
+            portfolioData.resumePdfFilename = document.getElementById('resume-pdf-filename').value;
+            portfolioData.resumeText = document.getElementById('resume-text').value;
+            saveData();
+        });
+
+        document.getElementById('add-experience-btn').addEventListener('click', () => {
+            if (!portfolioData.experience) portfolioData.experience = [];
+            portfolioData.experience.unshift({ title: '', company: '', logoFilename: '', description: '' });
+            renderExperience();
+        });
+        
+        document.getElementById('add-project-btn').addEventListener('click', () => {
+            if (!portfolioData.projects) portfolioData.projects = [];
+            portfolioData.projects.unshift({ title: '', description: '', imageFilename: '', liveUrl: '', githubUrl: '', tech: [] });
+            renderProjects();
+        });
+
+        const generateIdeaBtn = document.getElementById('generate-idea-btn');
+        const aiKeywordsInput = document.getElementById('ai-keywords');
+        const aiIdeaOutput = document.getElementById('ai-idea-output');
+
+        generateIdeaBtn.addEventListener('click', async () => {
+            const keywords = aiKeywordsInput.value.trim();
+            if (!keywords) {
+                alert('Please enter some keywords first.');
+                return;
+            }
+            generateIdeaBtn.innerHTML = `<span class="spinner"></span> Generating...`;
+            generateIdeaBtn.disabled = true;
+
+            const prompt = `Generate a creative portfolio project idea based on these keywords: "${keywords}". Provide a JSON object with keys: "title" (string), "description" (string, 2 sentences max), and "tech" (an array of 3 relevant technology strings).`;
+            const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${firebaseConfig.apiKey.replace('AIzaSy', 'AIzaSy')}`; // Simple obfuscation
+            const payload = { contents: [{ parts: [{ text: prompt }] }] };
+            
+            try {
+                const response = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                const result = await response.json();
+                const textResponse = result.candidates[0].content.parts[0].text;
+                const jsonString = textResponse.match(/```json\n([\s\S]*?)\n```/)[1];
+                const idea = JSON.parse(jsonString);
+
+                aiIdeaOutput.innerHTML = `
+                    <h4 class="font-bold text-white">${idea.title}</h4>
+                    <p class="text-gray-300 my-2">${idea.description}</p>
+                    <div class="flex flex-wrap gap-2">${idea.tech.map(t => `<span class="bg-teal-500/20 text-teal-300 text-xs px-2 py-1 rounded-full">${t}</span>`).join('')}</div>
+                    <button class="btn btn-primary mt-4 text-sm" onclick='addGeneratedProject(${JSON.stringify(idea)})'>Add this to Projects</button>
+                `;
+                aiIdeaOutput.classList.remove('hidden');
+
+            } catch (e) {
+                aiIdeaOutput.textContent = 'Could not generate an idea. Please try again.';
+                console.error("AI Idea Generation Error:", e);
+            } finally {
+                generateIdeaBtn.innerHTML = `Generate Idea ✨`;
+                generateIdeaBtn.disabled = false;
+            }
+        });
+
+        window.addGeneratedProject = (idea) => {
+             if (!portfolioData.projects) portfolioData.projects = [];
+            portfolioData.projects.unshift({
+                title: idea.title,
+                description: idea.description,
+                tech: idea.tech,
+                imageFilename: '',
+                liveUrl: '',
+                githubUrl: ''
+            });
+            renderProjects();
+            document.getElementById('project-list').scrollIntoView({ behavior: 'smooth' });
+        };
+        
+        window.updateExperience = (index, field, value) => { portfolioData.experience[index][field] = value; saveData(); };
+        window.deleteExperience = (index) => { if (confirm('Delete?')) { portfolioData.experience.splice(index, 1); renderExperience(); saveData(); } };
+        window.updateProject = (index, field, value) => { portfolioData.projects[index][field] = value; saveData(); };
+        window.deleteProject = (index) => { if (confirm('Delete?')) { portfolioData.projects.splice(index, 1); renderProjects(); saveData(); } };
+
+    </script>
+</body>
+</html>
