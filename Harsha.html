@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsha</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Icon Library for menu icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        /* Custom styles for the page */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000; /* Pure Black Background */
+            color: #ccd6f6; /* Light Slate Text */
+        }
+
+        /* Custom animation keyframes */
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Applying animations */
+        .animate-slideInUp { animation: slideInUp 0.7s ease-out forwards; }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #64ffda;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        /* Style for scroll-triggered animations */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Gradient text effect */
+        .gradient-text {
+            background: linear-gradient(to right, #64ffda, #8892b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Colors for Black Theme */
+        .text-teal { color: #64ffda; }
+        .bg-dark-gray { background-color: #111111; }
+        .hover-text-teal:hover { color: #64ffda; }
+        .border-teal { border-color: #64ffda; }
+        .hover-bg-teal-tint:hover { background-color: rgba(100, 255, 218, 0.1); }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="bg-black/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white">Harsha Vardhan Guntreddi</a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="hover-text-teal transition-colors duration-300">About</a>
+                <a href="#experience" class="hover-text-teal transition-colors duration-300">Experience</a>
+                <a href="#projects" class="hover-text-teal transition-colors duration-300">Projects</a>
+                <a href="#contact" class="hover-text-teal transition-colors duration-300">Contact</a>
+                <a href="HARSHAR.pdf" target="_blank" class="text-teal border border-teal px-4 py-2 rounded-md hover-bg-teal-tint transition-colors duration-300">
+                    View PDF
+                </a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-white">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-2/3 max-w-sm bg-dark-gray z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+        <div class="p-8">
+            <button id="close-menu-button" class="absolute top-6 right-6 text-white">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+            <nav class="flex flex-col space-y-8 mt-12 text-lg">
+                <a href="#about" class="hover-text-teal transition-colors duration-300 mobile-menu-link">About</a>
+                <a href="#experience" class="hover-text-teal transition-colors duration-300 mobile-menu-link">Experience</a>
+                <a href="#projects" class="hover-text-teal transition-colors duration-300 mobile-menu-link">Projects</a>
+                <a href="#contact" class="hover-text-teal transition-colors duration-300 mobile-menu-link">Contact</a>
+                <a href="HARSHAR.pdf" target="_blank" class="mt-4 inline-block text-teal border border-teal px-4 py-2 rounded-md hover-bg-teal-tint transition-colors duration-300">
+                    View PDF
+                </a>
+            </nav>
+        </div>
+    </div>
+
+
+    <main class="pt-24">
+
+        <!-- Hero Section -->
+        <section id="hero" class="container mx-auto px-6 py-20 md:py-24 text-center">
+            <div class="max-w-4xl mx-auto">
+                <img src="your-photo.jpg" 
+                     onerror="this.onerror=null;this.src='https://placehold.co/150x150/000000/64ffda?text=HVG';"
+                     alt="Harsha Vardhan Guntreddi" 
+                     class="w-36 h-36 rounded-full object-cover mx-auto mb-6 border-4 border-teal shadow-lg animate-float">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 animate-slideInUp" style="animation-delay: 0.1s;">
+                    Hi, I'm Harsha Vardhan Guntreddi
+                </h1>
+                <p class="text-lg md:text-xl text-[#8892b0] mb-8 animate-slideInUp" style="animation-delay: 0.2s;">
+                    I build <span class="gradient-text font-semibold">user-centric software solutions</span> for the web and beyond.
+                </p>
+                <div class="flex justify-center items-center space-x-4 animate-slideInUp" style="animation-delay: 0.3s;">
+                    <a href="#projects" class="bg-teal text-white font-bold py-3 px-8 rounded-md transition-transform transform hover:scale-105 duration-300">
+                        View My Work
+                    </a>
+                    <a href="https://github.com/HarshaGuntreddi" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
+                    </a>
+                    <a href="https://linkedin.com/in/HarshaVardhanGuntreddi" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- AI Assistant Box -->
+            <div class="mt-16 max-w-2xl mx-auto animate-slideInUp" style="animation-delay: 0.4s;">
+                <div class="bg-dark-gray p-8 rounded-lg border border-gray-800">
+                    <h3 class="text-xl font-bold text-white mb-4">Want to know more?</h3>
+                    <textarea id="ai-question-input" class="w-full bg-[#000] p-3 rounded-md text-white border border-gray-700 focus:ring-2 focus:ring-teal focus:outline-none" rows="3" placeholder="Ask my AI assistant a question, e.g., 'What are your key skills?'"></textarea>
+                    <div id="ai-response-area" class="text-left p-4 mt-4 bg-black rounded-md border border-gray-700 min-h-[50px] text-[#8892b0] hidden"></div>
+                    <div class="mt-6">
+                        <button id="ask-ai-btn" class="bg-teal text-white font-bold py-3 px-6 rounded-md transition-transform transform hover:scale-105 duration-300 text-lg w-full sm:w-auto">
+                            Ask my AI Assistant ✨
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-20 md:py-32 fade-in-section">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-4">About Me</h2>
+                        <p class="text-[#8892b0] mb-4">
+                            A B-Tech student intensely mastering Full Stack development while advancing skills in Data Science, Machine learning, PC building, server deployment, and computer networking. I focus on writing reusable, testable, and efficient code, integrating technical expertise with clear communication to deliver high-quality software solutions.
+                        </p>
+                        <ul class="mt-4 grid grid-cols-2 gap-2 text-[#ccd6f6]">
+                            <li class="flex items-center"><span class="text-teal mr-2">▹</span>Python</li>
+                            <li class="flex items-center"><span class="text-teal mr-2">▹</span>JavaScript (ES6+)</li>
+                            <li class="flex items-center"><span class="text-teal mr-2">▹</span>React</li>
+                            <li class="flex items-center"><span class="text-teal mr-2">▹</span>Node.js & Express</li>
+                            <li class="flex items-center"><span class="text-teal mr-2">▹</span>C / C++</li>
+                            <li class="flex items-center"><span class="text-teal mr-2">▹</span>SQL & NoSQL</li>
+                        </ul>
+                    </div>
+                    <div class="relative">
+                        <img src="https://placehold.co/600x600/111111/FFFFFF?text=Workspace" alt="A picture of your workspace" class="rounded-lg shadow-2xl z-10 relative">
+                         <div class="absolute top-0 -left-4 w-full h-full border-2 border-teal rounded-lg transform -rotate-3 z-0"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Work Experience Section -->
+        <section id="experience" class="py-20 md:py-32 fade-in-section">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-white text-center mb-12">Work Experience</h2>
+                <div class="max-w-4xl mx-auto bg-dark-gray rounded-lg border border-gray-800 shadow-lg overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/3 p-8 flex items-center justify-center bg-black/20">
+                             <img src="sony-logo.png" 
+                                  onerror="this.onerror=null;this.src='https://placehold.co/200x100/111111/FFFFFF?text=Company+Logo';"
+                                  alt="Company Logo" 
+                                  class="w-40 h-auto object-contain">
+                        </div>
+                        <div class="md:w-2/3 p-8">
+                            <div class="flex justify-between items-baseline">
+                                <h3 class="text-xl font-bold text-teal">Project Intern</h3>
+                                <p class="text-sm text-[#8892b0]">SONY-SSUP</p>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-1">Developing an Edge-based Cyber-Physical System (CPS) for Smart Polyhouse Solar Drying.</p>
+                            <ul class="mt-4 list-disc list-inside text-[#8892b0] space-y-2">
+                                <li>Working with Daisy Seed 1.1 & SPRESENSE for real-time data acquisition and IoT sensor network integration.</li>
+                                <li>Designed a smart agriculture monitoring system using Daisy Seed with FreeRTOS for real-time multitasking.</li>
+                                <li>Engineered a robust RTOS architecture with mutex-protected queues for inter-task communication and fail-safe error handling.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 md:py-32 fade-in-section">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-white text-center mb-12">Things I've Built</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Project Card 1 -->
+                    <div class="project-card bg-dark-gray rounded-lg overflow-hidden shadow-lg hover:shadow-teal/20 transition-all duration-300 transform hover:-translate-y-2 border border-gray-800 flex flex-col">
+                        <img src="https://placehold.co/600x400/000000/FFFFFF?text=Project+1" alt="Screenshot of Project 1" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="project-title text-xl font-bold text-white mb-2">Distributed Video Streaming System</h3>
+                            <p class="project-desc text-[#8892b0] mb-4 text-sm">Architected a distributed video streaming platform with agent-based load balancing and adaptive bitrate streaming.</p>
+                            <div class="project-tech flex flex-wrap gap-2 mb-4">
+                                <span class="bg-teal/10 text-teal text-xs font-semibold px-2.5 py-0.5 rounded-full">Python</span>
+                                <span class="bg-teal/10 text-teal text-xs font-semibold px-2.5 py-0.5 rounded-full">Flask</span>
+                                <span class="bg-teal/10 text-teal text-xs font-semibold px-2.5 py-0.5 rounded-full">Nginx</span>
+                            </div>
+                            <div class="flex items-center justify-between mt-auto">
+                                <a href="#" class="text-teal hover-text-teal font-semibold">Live Demo →</a>
+                                <a href="#" class="text-gray-400 hover:text-white ml-4">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="project-card bg-dark-gray rounded-lg overflow-hidden shadow-lg hover:shadow-teal/20 transition-all duration-300 transform hover:-translate-y-2 border border-gray-800 flex flex-col">
+                        <img src="https://placehold.co/600x400/000000/FFFFFF?text=Project+2" alt="Screenshot of Project 2" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="project-title text-xl font-bold text-white mb-2">Peer-to-Peer Video Calling App</h3>
+                            <p class="project-desc text-[#8892b0] mb-4 text-sm">A video calling app for local networks, featuring an efficient data model and end-to-end encryption for secure communication.</p>
+                            <div class="project-tech flex flex-wrap gap-2 mb-4">
+                                <span class="bg-teal/10 text-teal text-xs font-semibold px-2.5 py-0.5 rounded-full">Networking</span>
+                                <span class="bg-teal/10 text-teal text-xs font-semibold px-2.5 py-0.5 rounded-full">E2E Encryption</span>
+                            </div>
+                            <div class="flex items-center justify-between mt-auto">
+                                <a href="#" class="text-teal hover-text-teal font-semibold">Live Demo →</a>
+                                <a href="#" class="text-gray-400 hover:text-white ml-4">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card 3 -->
+                    <div class="project-card bg-dark-gray rounded-lg overflow-hidden shadow-lg hover:shadow-teal/20 transition-all duration-300 transform hover:-translate-y-2 border border-gray-800 flex flex-col">
+                        <img src="https://placehold.co/600x400/000000/FFFFFF?text=Project+3" alt="Screenshot of Project 3" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="project-title text-xl font-bold text-white mb-2">Smart Inventory Control System</h3>
+                            <p class="project-desc text-[#8892b0] mb-4 text-sm">Automated inventory system using SBCs, high-speed pattern recognition, and optimized delivery routing via graph matching.</p>
+                            <div class="project-tech flex flex-wrap gap-2 mb-4">
+                                <span class="bg-teal/10 text-teal text-xs font-semibold px-2.5 py-0.5 rounded-full">Algorithms</span>
+                                <span class="bg-teal/10 text-teal text-xs font-semibold px-2.5 py-0.5 rounded-full">Hardware</span>
+                            </div>
+                            <div class="flex items-center justify-between mt-auto">
+                                <a href="#" class="text-teal hover-text-teal font-semibold">Live Demo →</a>
+                                <a href="#" class="text-gray-400 hover:text-white ml-4">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 md:py-32 fade-in-section">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-white mb-4">Contact Me</h2>
+                <p class="text-[#8892b0] max-w-2xl mx-auto mb-8">
+                    My inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                </p>
+                <a href="mailto:harshaguntreddi@outlook.com" class="bg-teal text-white font-bold py-4 px-10 rounded-md transition-transform transform hover:scale-105 duration-300 text-lg">
+                    Say Hello
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
+            <p>&copy; 2024 Harsha Vardhan Guntreddi. All Rights Reserved.</p>
+            <p class="text-sm mt-2">Designed & Built by Harsha Vardhan Guntreddi</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Gemini API Integration ---
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=`;
+
+        // --- AI Assistant Context (will be loaded from file) ---
+        let resumeContext = "Sorry, my knowledge base is currently unavailable. Please try again later.";
+        const AI_INSTRUCTIONS = `You are an AI assistant for Harsha Vardhan Guntreddi. Your purpose is to answer questions about him based on the provided resume text. Be helpful, professional, and answer only based on the text. If the answer isn't in the text, say you don't have that information.`;
+
+        // --- Elements ---
+        const askAiBtn = document.getElementById('ask-ai-btn');
+        const questionInput = document.getElementById('ai-question-input');
+        const aiResponseArea = document.getElementById('ai-response-area');
+
+        // --- Load Resume Context from File ---
+        async function loadResumeContext() {
+            try {
+                const response = await fetch('resume.txt');
+                if (!response.ok) {
+                    throw new Error('Resume file not found.');
+                }
+                resumeContext = await response.text();
+                console.log("Resume context loaded successfully.");
+            } catch (error) {
+                console.error("Failed to load resume context:", error);
+            }
+        }
+
+        // --- Generic API Call Function ---
+        async function callGemini(prompt) {
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }]
+            };
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const result = await response.json();
+                if (result.candidates && result.candidates[0].content.parts.length > 0) {
+                    return result.candidates[0].content.parts[0].text;
+                } else {
+                    return "Sorry, I couldn't generate a response.";
+                }
+            } catch (error) {
+                console.error("Error calling Gemini API:", error);
+                return "An error occurred while connecting to the AI service.";
+            }
+        }
+
+        // --- AI Assistant Logic ---
+        askAiBtn.addEventListener('click', async () => {
+            const question = questionInput.value.trim();
+            if (!question) {
+                aiResponseArea.textContent = "Please enter a question first.";
+                aiResponseArea.classList.remove('hidden');
+                return;
+            }
+
+            askAiBtn.innerHTML = `<span class="spinner"></span>&nbsp;Thinking...`;
+            askAiBtn.disabled = true;
+            aiResponseArea.classList.remove('hidden');
+            aiResponseArea.innerHTML = `<div class="flex items-center"><span class="spinner mr-2"></span><span>Generating response...</span></div>`;
+
+            const prompt = `${AI_INSTRUCTIONS}\n\n--- RESUME TEXT START ---\n${resumeContext}\n--- RESUME TEXT END ---\n\nQuestion from visitor: "${question}"\n\nAnswer:`;
+            const responseText = await callGemini(prompt);
+            
+            aiResponseArea.textContent = responseText;
+            askAiBtn.innerHTML = "Ask my AI Assistant ✨";
+            askAiBtn.disabled = false;
+        });
+
+        // --- Page Initialization ---
+        document.addEventListener('DOMContentLoaded', () => {
+            loadResumeContext();
+
+            // --- Mobile Menu Logic ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const closeMenuButton = document.getElementById('close-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+            mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.remove('translate-x-full'); });
+            closeMenuButton.addEventListener('click', () => { mobileMenu.classList.add('translate-x-full'); });
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => { mobileMenu.classList.add('translate-x-full'); });
+            });
+
+            // --- Smooth Scrolling ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            // --- Scroll-triggered Animations ---
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            sections.forEach(section => { observer.observe(section); });
+        });
+    </script>
+</body>
+</html>
