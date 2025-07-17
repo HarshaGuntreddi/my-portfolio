@@ -1,0 +1,91 @@
+[cite_start]**Name:** HARSHA VARDHAN GUNTREDDI [cite: 1]
+
+**Contact Information:**
+* [cite_start]**Email:** harshavguntreddi@gmail.com [cite: 2]
+* [cite_start]**Phone:** +91 7386117763 [cite: 3]
+* [cite_start]**GitHub:** HarshaGuntreddi-GitHub [cite: 4]
+* [cite_start]**LinkedIn:** in/Harsha-Vardhan-Guntreddi-LinkedIn [cite: 5]
+
+**Summary:**
+[cite_start]A B-Tech student with a strong focus on Full Stack development, Data Science, Machine Learning, PC building, server deployment, and computer networking. [cite: 7] [cite_start]I excel at writing reusable, testable, and efficient code. [cite: 8] [cite_start]My expertise combines technical skills with project management and clear communication to create user-focused software solutions. [cite: 8] [cite_start]I am also expanding my knowledge in the field of AI. [cite: 9]
+
+**Work Experience:**
+* [cite_start]**SONY-SSUP (Project INTERN)** [cite: 11]
+    * [cite_start]Developing an Edge-based Cyber-Physical System (CPS) for Smart Polyhouse Solar Drying to optimize the drying of food products using solar energy and sensor technology. [cite: 12]
+    * [cite_start]Utilizing Spresense, stm, and other technologies. [cite: 13]
+    * [cite_start]Working with Daisy Seed 1.1 (Electrosmith) & SPRESENSE for real-time data acquisition, embedded system development, and IoT sensor network integration to improve agricultural efficiency. [cite: 14]
+    * [cite_start]Developed a smart agriculture monitoring system with Daisy Seed as the main controller using FreeRTOS for real-time multitasking. [cite: 15]
+    * [cite_start]Integrated SHT21 sensors for environmental data, ESP32 for WiFi, and GSM modules for cellular backup to upload sensor logs and images via MQTT/FTP. [cite: 16]
+    * [cite_start]Designed a robust RTOS architecture featuring mutex-protected queues for inter-task communication and fail-safe error handling. [cite: 17]
+    * [cite_start]Prototyped on custom hardware, achieving automated remote field monitoring with data updates every 3 minutes. [cite: 18]
+
+**Key Projects:**
+
+* [cite_start]**Deep Learning framework towards adaptive encryption switching in Edge systems:** [cite: 20]
+    * [cite_start]Developed ASCON and GIFT algorithms to protect edge devices against various cyber attacks. [cite: 20]
+    * [cite_start]Designed a dynamic RNN-based security model that adapts encryption techniques based on real-time threat analysis. [cite: 21, 22]
+    * [cite_start]Deployed on Raspberry Pi with Ubuntu Server for efficient performance in resource-limited environments. [cite: 23]
+
+* [cite_start]**OWN DIY HOME LAB:** [cite: 24]
+    * [cite_start]Engineered and deployed a Power-over-Ethernet (PoE) based Network Attached Storage (NAS) system. [cite: 26]
+    * [cite_start]Hosted a full-stack website on a personal server using TrueNAS core and PlexServer. [cite: 27]
+    * [cite_start]Installed Ubiquiti Gear and developed a custom DIY VPN and an ad-blocker DNS server running as a Docker container on a Raspberry Pi. [cite: 27]
+    * [cite_start]Also runs a Minecraft server, uses Proxmox for backup, and has a dedicated server room for various other projects including virtual machines, storage, and media servers, and a Kubernetes Cluster. [cite: 27]
+
+* [cite_start]**Optimized Peer-to-Peer Video Calling Application - NETWORKING:** [cite: 29]
+    * [cite_start]Designed a video calling application for multiple users on the same network without using mobile data. [cite: 30]
+    * [cite_start]Engineered an efficient data transmission model to minimize network load and maximize concurrent connections. [cite: 31]
+    * [cite_start]Integrated end-to-end encryption and digital image processing for secure video calls and file sharing. [cite: 32]
+
+* [cite_start]**Deadlock Prevention and Detection in Java-Based OS Simulation:** [cite: 34]
+    * [cite_start]Developed a Java-based OS kernel with deadlock prevention using resource allocation graphs and Banker's algorithm. [cite: 35]
+    * [cite_start]Integrated real-time deadlock detection to identify and resolve circular wait conditions. [cite: 36]
+    * [cite_start]Optimized thread scheduling and resource management to minimize deadlocks and improve system performance. [cite: 37]
+
+* [cite_start]**Industrial Smart Inventory Control System:** [cite: 38]
+    * [cite_start]Designed an automated inventory tracking system using industrial single-board computers. [cite: 40]
+    * [cite_start]Developed high-speed pattern recognition for barcode/RFID detection using the Shift-Or algorithm. [cite: 40]
+    * [cite_start]Created optimized delivery routing with the Hopcroft-Karp algorithm for bipartite graph matching. [cite: 40]
+    * [cite_start]Implemented real-time networked communication between warehouse subsystems. [cite: 40]
+
+* [cite_start]**Blockchain Project: Quantum-Secure Ledger:** [cite: 43]
+    * [cite_start]Built a lightweight blockchain with ECDSA-based transaction signing and SHA-256 hashing. [cite: 44]
+    * [cite_start]Designed a miner node on Ubuntu to validate transactions using Proof-of-Work with adjustable difficulty. [cite: 45]
+    * [cite_start]Developed a client simulator for generating and signing transactions. [cite: 46]
+    * [cite_start]Implemented a real-time verifier to audit chain consistency and detect anomalies. [cite: 47]
+    * [cite_start]Optimized performance by reducing signature verification time to under 100ms through parallel processing. [cite: 48]
+    * [cite_start]Achieved a 100% detection rate in simulated attacks. [cite: 49]
+
+* [cite_start]**Distributed Video Streaming System:** [cite: 51]
+    * [cite_start]Architected a distributed video streaming platform using edge nodes and cloud servers. [cite: 52]
+    * [cite_start]Implemented agent-based load balancing with a Flask API and the Join-the-Shortest-Queue algorithm. [cite: 53]
+    * [cite_start]Engineered adaptive bitrate streaming to adjust video quality based on network conditions. [cite: 54]
+    * [cite_start]Designed a dynamic replication scheduler to automate video file distribution. [cite: 55]
+    * [cite_start]Integrated Prometheus and Grafana for real-time performance monitoring. [cite: 56]
+
+* [cite_start]**E-Learning Platform:** [cite: 58]
+    * [cite_start]Architected a comprehensive learning management system for students, faculty, and administrators. [cite: 60]
+    * [cite_start]Engineered a scalable backend using modern cloud infrastructure for high availability. [cite: 61]
+    * [cite_start]Developed intuitive and responsive user interfaces. [cite: 62]
+    * [cite_start]Implemented secure data management protocols. [cite: 63]
+    * [cite_start]Facilitated real-time communication and feedback. [cite: 64]
+
+* [cite_start]**Mobile Device Forensics Project:** [cite: 66]
+    * [cite_start]Extracted call logs and app data from non-rooted Android devices using ADB on Kali Linux. [cite: 67]
+    * [cite_start]Mastered Autopsy and ABE for analyzing backups and resolving data recovery issues. [cite: 68]
+    * [cite_start]Bypassed Android restrictions while maintaining evidence integrity. [cite: 69]
+    * [cite_start]Resolved technical issues like ADB authorization and Java compatibility errors. [cite: 70]
+    * [cite_start]Queried databases using SQLite and Autopsy to deliver professional investigative reports. [cite: 71]
+
+**Skills:**
+* [cite_start]**Programming Languages:** Python, JavaScript, C, C++ [cite: 74]
+* [cite_start]**Web Development:** HTML, CSS, React, Node.js, Express, RESTful APIs, and a strong understanding of data structures and algorithms. [cite: 74]
+* [cite_start]**Databases:** SQL, NoSQL [cite: 75]
+* [cite_start]**Version Control:** Git, GitHub [cite: 76]
+* [cite_start]**Operating Systems:** Unix/Linux, Windows [cite: 77]
+* [cite_start]**Certifications/Coursework:** IIT Madras - Raspberry Pi, AI, ML [cite: 78]
+
+**Education:**
+* [cite_start]**B.TECH CSE (2022-2026):** Amrita Vishwa Vidyapeetham, Coimbatore, TN [cite: 80, 81]
+* [cite_start]**CBSE (XII) (2022):** Narayana Group of schools, Vizag, AP [cite: 82, 83, 84]
+* [cite_start]**CBSE (X) (2020):** Narayana Group of schools, Vizag, AP [cite: 86, 87, 88]
