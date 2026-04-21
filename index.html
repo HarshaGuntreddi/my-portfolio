@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="description" content="Harsha Vardhan Guntreddi — Embedded Systems, Robotics Safety (CPS), Distributed Backend Platforms, AI/RAG Automation." />
+  <title>HARSHA // PORTFOLIO</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ═══ ASCII RAIN CANVAS ═══ -->
+  <canvas id="ascii-rain"></canvas>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <div class="brand">
+        <span class="brand-bracket">[</span>HARSHA<span class="brand-bracket">]</span>
+      </div>
+
+      <nav class="nav-desktop">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#hire">Hire&nbsp;Me</a>
+        <a class="btn-resume-nav" href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume ↗</a>
+      </nav>
+
+      <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Open Menu">[≡]</button>
+    </div>
+
+    <nav class="nav-mobile-panel" id="mobilePanel">
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#skills" class="mobile-link">Skills</a>
+      <a href="#projects" class="mobile-link">Projects</a>
+      <a href="#experience" class="mobile-link">Experience</a>
+      <a href="#hire" class="mobile-link">Hire Me</a>
+      <a class="mobile-link" href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume ↗</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero container reveal-up">
+
+      <div class="hero-ascii-name" aria-label="HARSHA">
+<pre class="ascii-name">
+ _   _    _    ____  ____  _   _    _   
+| | | |  / \  |  _ \/ ___|| | | |  / \  
+| |_| | / _ \ | |_) \___ \| |_| | / _ \ 
+|  _  |/ ___ \|  _ &lt; ___) |  _  |/ ___ \
+|_| |_/_/   \_\_| \_\____/|_| |_/_/   \_\</pre>
+      </div>
+
+      <p class="hero-eyebrow">Embedded&nbsp;&nbsp;•&nbsp;&nbsp;Robotics&nbsp;Safety&nbsp;&nbsp;•&nbsp;&nbsp;Distributed&nbsp;Backend&nbsp;&nbsp;•&nbsp;&nbsp;AI/RAG</p>
+
+      <div class="terminal-window">
+        <div class="terminal-titlebar">
+          <span class="terminal-dot"></span>
+          <span class="terminal-dot"></span>
+          <span class="terminal-dot"></span>
+          <span class="terminal-title-text">harsha.sh — portfolio v1.0</span>
+        </div>
+        <div class="terminal-body">
+          <div class="t-line"><span class="t-prompt">$ </span><span class="t-cmd">whoami</span></div>
+          <div class="t-line t-output">HARSHA VARDHAN GUNTREDDI</div>
+          <div class="t-line t-output t-dim">B.Tech CSE @ Amrita Vishwa Vidyapeetham (AEEE AIR 369)</div>
+          <div class="t-line">&nbsp;</div>
+          <div class="t-line"><span class="t-prompt">$ </span><span class="t-cmd">cat headline.txt</span></div>
+          <div class="t-line t-output t-large" id="typewriter-text"></div><div class="t-line"><span class="cursor"></span></div>
+          <div class="t-line">&nbsp;</div>
+          <div class="t-line"><span class="t-prompt">$ </span><span class="t-cmd">cat stack.txt</span></div>
+          <div class="t-line t-output">ESP32 / FreeRTOS → Spring Boot 3 → Kafka → Kubernetes → FastAPI + RAG</div>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-block">
+          <div class="stat-num">20K+</div>
+          <div class="stat-label">embedded / firmware LOC on real boards</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">&lt;70ms</div>
+          <div class="stat-label">p95 assign/delivery in dispatch logic</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">24/7</div>
+          <div class="stat-label">self-healing NAT / CPS telemetry</div>
+        </div>
+      </div>
+
+      <div class="hero-cta">
+        <a class="btn-primary" href="#hire">./hire_me.sh</a>
+        <a class="btn-ghost" href="tel:+917386117763">call +91 7386117763</a>
+        <a class="btn-ghost" href="mailto:harshavguntreddi@gmail.com">email ↗</a>
+        <a class="btn-ghost" href="https://github.com/HarshaGuntreddi" target="_blank" rel="noopener noreferrer">github ↗</a>
+      </div>
+
+    </section>
+
+    <!-- ═══ ABOUT ═══ -->
+    <section id="about" class="section reveal-up">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">[ 001 ] ─── ABOUT</div>
+          <h2 class="section-title">About me</h2>
+          <p class="section-sub">
+            Systems engineer who can sit next to hardware with a multimeter at 2AM
+            <em>and</em> write the backend service + CI/CD + monitoring that ships that hardware into the real world.
+            Safety, reliability, clean handoff from prototype → production.
+          </p>
+        </div>
+
+        <div class="about-grid">
+
+          <div class="ascii-card">
+            <h3 class="card-title">What I Build</h3>
+            <p class="card-desc">
+              Backend &amp; Distributed Systems: Spring Boot microservices, Kafka/Flink streaming,
+              real-time delivery/dispatch, PCI-aware tokenization vaults, rate-limited public APIs.<br/><br/>
+              Cyber-Physical Systems &amp; Robotics: autonomous landmine detection UGV with pulse-induction sensing,
+              safety-radius navigation, confirm-dwell logic, MATLAB/Simulink controller design.<br/><br/>
+              Embedded / Edge IoT: ESP32 NAT Wi-Fi repeater (AP+STA, hairpin NAT, OTA), Sony Spresense/STM32 data
+              nodes for polyhouse/solar dryer control with MQTT/FTP fallback, watchdog recovery, brownout safety.<br/><br/>
+              AI / RAG Automation: FastAPI + vector search (Qdrant/OpenSearch), doc extraction (Donut/LayoutLMv3),
+              multilingual assistants, observability and guardrails.
+            </p>
+          </div>
+
+          <div class="about-right">
+            <div class="ascii-card">
+              <h3 class="card-title">Looking For</h3>
+              <p class="card-desc">
+                Roles where I own real systems end to end.
+                I ship. I debug. I don't ghost when it breaks.
+              </p>
+              <div class="pill-row">
+                <span class="pill">Embedded / CPS</span>
+                <span class="pill">Backend / Platform</span>
+                <span class="pill">Infra / DevSecOps</span>
+                <span class="pill">AI for Operations</span>
+              </div>
+            </div>
+
+            <div class="ascii-card" style="margin-top:1px;">
+              <h3 class="card-title">Fast Facts</h3>
+              <ul class="facts-list">
+                <li>Coimbatore, India — open to BLR / HYD / CHN</li>
+                <li>B.Tech CSE, Amrita Vishwa Vidyapeetham (2022–2026)</li>
+                <li>AEEE AIR: 369</li>
+                <li>AWS Academy: Cloud Foundations &amp; Data Engineering</li>
+                <li>IIT Madras workshops: AI/ML, IoT on Raspberry Pi</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SKILLS ═══ -->
+    <section id="skills" class="section reveal-up">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">[ 002 ] ─── SKILLS</div>
+          <h2 class="section-title">Core Skills</h2>
+          <p class="section-sub">Drop me in and I start delivering.</p>
+        </div>
+
+        <div class="skills-grid">
+
+          <div class="ascii-card">
+            <h3 class="card-title">Embedded / CPS / Edge</h3>
+            <div class="skill-chips">
+              <span class="chip-tech">ESP32 (ESP-IDF 5.x)</span>
+              <span class="chip-tech">Sony Spresense</span>
+              <span class="chip-tech">STM32</span>
+              <span class="chip-tech">FreeRTOS</span>
+              <span class="chip-tech">UART / I2C / SPI</span>
+              <span class="chip-tech">OTA / Watchdog / Brownout</span>
+              <span class="chip-tech">MQTT / GSM / FTP</span>
+              <span class="chip-tech">MATLAB / Simulink</span>
+            </div>
+          </div>
+
+          <div class="ascii-card">
+            <h3 class="card-title">Backend / Distributed</h3>
+            <div class="skill-chips">
+              <span class="chip-tech">Java 17</span>
+              <span class="chip-tech">Spring Boot 3</span>
+              <span class="chip-tech">Kafka</span>
+              <span class="chip-tech">Flink</span>
+              <span class="chip-tech">REST / gRPC / OpenAPI</span>
+              <span class="chip-tech">PostgreSQL / MongoDB / DynamoDB</span>
+              <span class="chip-tech">Redis</span>
+              <span class="chip-tech">CQRS / Saga / Idempotency</span>
+              <span class="chip-tech">OAuth2 / OIDC / mTLS</span>
+            </div>
+          </div>
+
+          <div class="ascii-card">
+            <h3 class="card-title">Infra / DevSecOps</h3>
+            <div class="skill-chips">
+              <span class="chip-tech">Docker / Kubernetes</span>
+              <span class="chip-tech">GitHub Actions / Jenkins</span>
+              <span class="chip-tech">Prometheus / Grafana</span>
+              <span class="chip-tech">OpenTelemetry</span>
+              <span class="chip-tech">SonarQube / Fortify / Black Duck</span>
+              <span class="chip-tech">Nginx / TLS / NAT / VPN</span>
+              <span class="chip-tech">IDS/IPS (Zeek / Suricata)</span>
+              <span class="chip-tech">WAF (Nginx+ModSecurity)</span>
+            </div>
+          </div>
+
+          <div class="ascii-card">
+            <h3 class="card-title">AI / RAG / Doc Intel</h3>
+            <div class="skill-chips">
+              <span class="chip-tech">Python / FastAPI</span>
+              <span class="chip-tech">LLM Agents (tool use)</span>
+              <span class="chip-tech">Hybrid Retrieval BM25+Vec</span>
+              <span class="chip-tech">Qdrant / OpenSearch</span>
+              <span class="chip-tech">Donut / LayoutLMv3 OCR</span>
+              <span class="chip-tech">Pydantic validation</span>
+              <span class="chip-tech">RAG Eval (RAGAS/TruLens)</span>
+              <span class="chip-tech">Multilingual Indic+English</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PROJECTS ═══ -->
+    <section id="projects" class="section reveal-up">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">[ 003 ] ─── PROJECTS</div>
+          <h2 class="section-title">Projects</h2>
+          <p class="section-sub">Real builds, not class toy code.</p>
+        </div>
+
+        <!-- Group 1 -->
+        <div class="project-group">
+          <h3 class="project-group-title">Cyber-Physical Systems, Embedded, Edge &amp; Security</h3>
+          <div class="projects-grid">
+
+            <article class="ascii-card project-card">
+              <div class="project-top">
+                <h4 class="project-title">Autonomous Landmine Detection UGV</h4>
+                <a class="proj-link" href="#" target="_blank" rel="noopener noreferrer">[demo ↗]</a>
+              </div>
+              <p class="project-desc">
+                Ground robot scanning for buried mines with pulse-induction sensing, KNN classification,
+                safety-radius enforcement — never drives onto a suspected mine. Confirm-dwell logic,
+                safe coverage path planning, MATLAB/Simulink controller design.
+              </p>
+              <div class="stack-row">
+                <span class="chip-tech">C / C++</span>
+                <span class="chip-tech">Python</span>
+                <span class="chip-tech">MATLAB / Simulink</span>
+                <span class="chip-tech">KNN</span>
+                <span class="chip-tech">UGV control</span>
+              </div>
+            </article>
+
+            <article class="ascii-card project-card">
+              <div class="project-top">
+                <h4 class="project-title">ESP32 NAT Router &amp; Secure Wi-Fi Repeater</h4>
+                <a class="proj-link" href="https://github.com/HarshaGuntreddi" target="_blank" rel="noopener noreferrer">[github ↗]</a>
+              </div>
+              <p class="project-desc">
+                Custom ESP-IDF 5.x firmware: dual-mode AP+STA repeater with hairpin NAT, DHCP server,
+                DNS proxy, mDNS reflector, MAC ACLs, rate limits, watchdog recovery, OTA with rollback,
+                MQTT telemetry for remote health monitoring.
+              </p>
+              <div class="stack-row">
+                <span class="chip-tech">ESP-IDF / FreeRTOS</span>
+                <span class="chip-tech">lwIP NAT</span>
+                <span class="chip-tech">MQTT</span>
+                <span class="chip-tech">OTA / WDT</span>
+              </div>
+            </article>
+
+            <article class="ascii-card project-card">
+              <div class="project-top">
+                <h4 class="project-title">Smart Polyhouse / Solar Dryer CPS (Sony-SSUP)</h4>
+              </div>
+              <p class="project-desc">
+                Edge-native control on Sony Spresense / STM32 for agricultural drying and climate control.
+                FreeRTOS-safe queues, hybrid connectivity (ESP32 Wi-Fi + GSM), MQTT/FTP uplink,
+                watchdog-driven recovery for field reliability.
+              </p>
+              <div class="stack-row">
+                <span class="chip-tech">Sony Spresense</span>
+                <span class="chip-tech">STM32</span>
+                <span class="chip-tech">FreeRTOS</span>
+                <span class="chip-tech">MQTT / GSM / FTP</span>
+              </div>
+            </article>
+
+            <article class="ascii-card project-card">
+              <div class="project-top">
+                <h4 class="project-title">IoT Telemetry &amp; Device Ops Console</h4>
+              </div>
+              <p class="project-desc">
+                Spring Boot ingest API + React dashboard watching remote ESP32 / Spresense units.
+                JWT auth, rate limiting, PostgreSQL heartbeat/last-seen models, alerting for offline nodes.
+                Hardened Linux/Nginx deploy with TLS.
+              </p>
+              <div class="stack-row">
+                <span class="chip-tech">Spring Boot</span>
+                <span class="chip-tech">PostgreSQL</span>
+                <span class="chip-tech">React / TypeScript</span>
+                <span class="chip-tech">Nginx / TLS</span>
+              </div>
+            </article>
+
+            <article class="ascii-card project-card">
+              <div class="project-top">
+                <h4 class="project-title">Zero-Trust Remote Access &amp; Threat Visibility Lab</h4>
+              </div>
+              <p class="project-desc">
+                pfSense/OPNsense HA (CARP+pfsync) across Untrust/Trust/DMZ/VPN zones; WireGuard + FreeRADIUS + TOTP;
+                Zeek + Suricata into ELK; Nginx+ModSecurity (OWASP CRS); failover drills near-zero packet loss.
+                Automated via Ansible + Docker.
+              </p>
+              <div class="stack-row">
+                <span class="chip-tech">pfSense / OPNsense</span>
+                <span class="chip-tech">WireGuard / IPsec</span>
+                <span class="chip-tech">IDS/IPS</span>
+                <span class="chip-tech">WAF / OWASP CRS</span>
+                <span class="chip-tech">Ansible</span>
+              </div>
+            </article>
+
+            <article class="ascii-card project-card">
+              <div class="project-top">
+                <h4 class="project-title">Deep Learning for Adaptive Encryption at the Edge</h4>
+              </div>
+              <p class="project-desc">
+                Lightweight ASCON &amp; GIFT ciphers defended using RNN-based adaptive security policies on Raspberry Pi.
+                Keeps comms hardened in hostile environments while staying real-time and power aware.
+              </p>
+              <div class="stack-row">
+                <span class="chip-tech">ASCON / GIFT</span>
+                <span class="chip-tech">Raspberry Pi</span>
+                <span class="chip-tech">RNN policy</span>
+                <span class="chip-tech">Edge security</span>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- Group 2 -->
+        <div class="project-group">
+          <h3 class="project-group-title">Backend Platforms, Distributed Systems &amp; Production Infra</h3>
+          <div class="projects-grid">
+
+            <article class="ascii-card project-card">
+              <div class="project-top">
+                <h4 class="project-title">Payments &amp; Risk Microservices</h4>
+              </div>
+              <p class="project-desc">
+                Real-Time Payment Authorization (Spring Boot, Kafka, Oracle): idempotent auth/capture/void,
+                Saga orchestration, OAuth2/mTLS, p95 &lt; 50ms.<br/>
+                Card Tokenization &amp; Vault: format-preserving tokenization with Vault Transit / SoftHSM, PCI-aware audit.<br/>
+                3DS 2.2 Emulator &amp; SDK: ACS-like emulator, signed JWT, Redis state.<br/>
+                Streaming Fraud Pipeline: Kafka → Flink → scoring + Redis, exactly-once, Grafana SLOs.
+              </p>
+              <div class="stack-row">
+                <span class="chip-tech">Spring Boot 3</span>
+                <span class="chip-tech">Kafka / Flink</span>
+                <span class="chip-tech">Redis</span>
+                <span class="chip-tech">OAuth2 / mTLS / PCI</span>
+              </div>
+            </article>
+
+            <article class="ascii-card project-card">
+              <div class="project-top">
+                <h4 class="project-title">Real-Time Dispatch • Search • Dynamic Pricing</h4>
+              </div>
+              <p class="project-desc">
+                Order &amp; Delivery Assignment: Spring Boot + Kafka + Redis + DynamoDB, rider assignment
+                at &gt;50k events/min, p95 &lt; 70ms.<br/>
+                Instant Search &amp; Recommendation: Go microservice, gRPC, Elasticsearch+Redis, +18% CTR in A/B sims.<br/>
+                Dynamic Pricing &amp; Surge Forecasting: AWS Lambda + Redis surge cache, DynamoDB rule store.
+              </p>
+              <div class="stack-row">
+                <span class="chip-tech">Java / Go</span>
+                <span class="chip-tech">Kafka / SQS</span>
+                <span class="chip-tech">Redis / DynamoDB</span>
+                <span class="chip-tech">Elasticsearch</span>
+              </div>
+            </article>
+
+            <article class="ascii-card project-card">
+              <div class="project-top">
+                <h4 class="project-title">Order Orchestration Platform</h4>
+              </div>
+              <p class="project-desc">
+                Domain-driven microservices (Java 17, Spring Boot 3, WebFlux) with CQRS+Saga for order lifecycle,
+                Kafka/RabbitMQ events, Redis caching, API Gateway/BFF, and full DevSecOps pipeline
+                (Jenkins, SonarQube, Fortify, Black Duck, blue/green deploys).
+              </p>
+              <div class="stack-row">
+                <span class="chip-tech">Spring Boot 3 / WebFlux</span>
+                <span class="chip-tech">Kafka / Redis</span>
+                <span class="chip-tech">CQRS / Saga</span>
+                <span class="chip-tech">Kubernetes / AWS</span>
+              </div>
+            </article>
+
+            <article class="ascii-card project-card">
+              <div class="project-top">
+                <h4 class="project-title">Industrial Telemetry &amp; Historian</h4>
+              </div>
+              <p class="project-desc">
+                OPC UA + MQTT ingest into PostgreSQL/TimescaleDB with retention + rollups.
+                FastAPI exposes /tags, /events, /trend with downsampling and pagination.
+                Prometheus exporters + Grafana dashboards for ingest QPS and health.
+              </p>
+              <div class="stack-row">
+                <span class="chip-tech">FastAPI</span>
+                <span class="chip-tech">OPC UA / MQTT</span>
+                <span class="chip-tech">TimescaleDB</span>
+                <span class="chip-tech">Grafana</span>
+              </div>
+            </article>
+
+            <article class="ascii-card project-card">
+              <div class="project-top">
+                <h4 class="project-title">Alarm &amp; Events Microservice</h4>
+              </div>
+              <p class="project-desc">
+                C#/.NET 8 service modeling limits, deadbands, hysteresis, shelving; CQRS + outbox to Kafka.
+                REST/gRPC with idempotency keys, xUnit tests, container image signing, SBOM, secure supply chain.
+              </p>
+              <div class="stack-row">
+                <span class="chip-tech">.NET 8</span>
+                <span class="chip-tech">CQRS / Kafka</span>
+                <span class="chip-tech">PostgreSQL</span>
+                <span class="chip-tech">gRPC / REST</span>
+              </div>
+            </article>
+
+            <article class="ascii-card project-card">
+              <div class="project-top">
+                <h4 class="project-title">minisqlpp-compiler</h4>
+              </div>
+              <p class="project-desc">
+                Compact SQL-subset compiler with LL(1) parser, AST, symbol table, semantic checks, and IR that can
+                eval on CSV or emit vendor SQL (Oracle/SQLite). Includes optimizer (projection/selection pushdown,
+                constant folding) and EXPLAIN-style pretty printer.
+              </p>
+              <div class="stack-row">
+                <span class="chip-tech">C++ / Parsing / AST</span>
+                <span class="chip-tech">LL(1) / Semantic Checks</span>
+                <span class="chip-tech">Query Optimization</span>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- Group 3 -->
+        <div class="project-group">
+          <h3 class="project-group-title">AI / RAG / Intelligent Automation</h3>
+          <div class="projects-grid">
+
+            <article class="ascii-card project-card">
+              <div class="project-top">
+                <h4 class="project-title">Agentic Document QA &amp; Automation</h4>
+              </div>
+              <p class="project-desc">
+                End-to-end RAG pipeline: semantic+layout chunking, hybrid retrieval (BM25 in OpenSearch + dense in Qdrant),
+                bge reranker, tool-using agent (table extraction, OCR fallback), FastAPI+vLLM serving.
+                RAGAS/TruLens eval, OpenTelemetry tracing, Grafana dashboards.
+              </p>
+              <div class="stack-row">
+                <span class="chip-tech">FastAPI</span>
+                <span class="chip-tech">Qdrant / OpenSearch</span>
+                <span class="chip-tech">LLM Agents</span>
+                <span class="chip-tech">RAGAS / TruLens</span>
+              </div>
+            </article>
+
+            <article class="ascii-card project-card">
+              <div class="project-top">
+                <h4 class="project-title">Contract / Invoice Extraction</h4>
+              </div>
+              <p class="project-desc">
+                Fine-tuned Donut &amp; LayoutLMv3 for scanned contracts/invoices.
+                Post-processing with regex + Pydantic validators and an LLM repair step for edge cases,
+                exported as clean structured JSON/CSV.
+              </p>
+              <div class="stack-row">
+                <span class="chip-tech">Donut</span>
+                <span class="chip-tech">LayoutLMv3</span>
+                <span class="chip-tech">Pydantic</span>
+                <span class="chip-tech">OCR / PDF parsing</span>
+              </div>
+            </article>
+
+            <article class="ascii-card project-card">
+              <div class="project-top">
+                <h4 class="project-title">RAG Observability &amp; Safety Toolkit</h4>
+              </div>
+              <p class="project-desc">
+                Reusable eval harness with RAGAS, golden-set sampling, toxicity/PII guardrails,
+                schema validation, drift monitoring, and OpenTelemetry traces into Grafana dashboards.
+              </p>
+              <div class="stack-row">
+                <span class="chip-tech">OpenTelemetry</span>
+                <span class="chip-tech">Prometheus / Grafana</span>
+                <span class="chip-tech">Safety / Guardrails</span>
+              </div>
+            </article>
+
+            <article class="ascii-card project-card">
+              <div class="project-top">
+                <h4 class="project-title">Multilingual KB Assistant (Indic + English)</h4>
+              </div>
+              <p class="project-desc">
+                Retrieval-augmented assistant for English + Indic FAQs using IndicTrans2 normalization and
+                multilingual embeddings. FastAPI with Qdrant + Redis cache and BM25 fallback for when embeddings miss.
+              </p>
+              <div class="stack-row">
+                <span class="chip-tech">FastAPI</span>
+                <span class="chip-tech">Qdrant / Redis</span>
+                <span class="chip-tech">IndicTrans2</span>
+                <span class="chip-tech">Sentence Transformers</span>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ EXPERIENCE ═══ -->
+    <section id="experience" class="section reveal-up">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">[ 004 ] ─── EXPERIENCE &amp; EDUCATION</div>
+          <h2 class="section-title">Experience</h2>
+          <p class="section-sub">Real teams. Real deployments. Real users.</p>
+        </div>
+
+        <div class="timeline">
+
+          <div class="timeline-item ascii-card">
+            <div class="timeline-head">
+              <div>
+                <div class="timeline-role">Project Intern — Sony SSUP</div>
+                <div class="timeline-place">India</div>
+              </div>
+              <div class="timeline-date">Dec 2024 – Sep 2025</div>
+            </div>
+            <p class="timeline-desc">
+              » Built Spresense/ESP32 edge CPS node for smart polyhouse drying: FreeRTOS pipeline, MQTT/FTP uplink, watchdog recovery.<br/>
+              » Wrote Java Spring Boot ingest API with JWT auth, rate limiting, PostgreSQL, Docker/K8s deploy, CI/CD, SonarQube gates.<br/>
+              » Shipped observability (Prometheus, OpenTelemetry, Grafana) so field deployments are debuggable instead of guesswork.<br/>
+              » Worked cross-team (hardware, data, platform), sprint-based delivery.
+            </p>
+          </div>
+
+          <div class="timeline-item ascii-card">
+            <div class="timeline-head">
+              <div>
+                <div class="timeline-role">Freelance Infra / Full-Stack</div>
+                <div class="timeline-place"><a class="dim-link" href="https://vishnupumps.com/" target="_blank" rel="noopener noreferrer">vishnupumps.com ↗</a></div>
+              </div>
+              <div class="timeline-date">2025</div>
+            </div>
+            <p class="timeline-desc">
+              » Delivered production site + lead capture backend for a real industrial client.<br/>
+              » Set up Linux hosting (Nginx, SSL/TLS), DNS, uptime tuning, and simple admin portal.
+            </p>
+          </div>
+
+          <div class="timeline-item ascii-card">
+            <div class="timeline-head">
+              <div>
+                <div class="timeline-role">B.Tech CSE</div>
+                <div class="timeline-place">Amrita Vishwa Vidyapeetham, Coimbatore</div>
+              </div>
+              <div class="timeline-date">Sep 2022 – Jun 2026</div>
+            </div>
+            <p class="timeline-desc">
+              » Coursework: Distributed Systems, Networks, OS, DBMS, Algorithms, Embedded Systems, AI/ML.<br/>
+              » Workshops: IIT Madras (AI/ML, IoT on Raspberry Pi).<br/>
+              » AWS Academy Graduate: Cloud Foundations &amp; Data Engineering.<br/>
+              » AEEE AIR: 369.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ GITHUB ═══ -->
+    <section id="github" class="section reveal-up">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">[ 005 ] ─── GITHUB ACTIVITY</div>
+          <h2 class="section-title">GitHub</h2>
+        </div>
+
+        <div class="ascii-card github-card">
+          <div class="github-card-head">
+            <div>
+              <div class="github-name">HarshaGuntreddi</div>
+              <a class="github-handle" href="https://github.com/HarshaGuntreddi" target="_blank" rel="noopener noreferrer">@HarshaGuntreddi ↗</a>
+            </div>
+            <div class="github-meta">public commits • firmware • backend • infra • AI/RAG</div>
+          </div>
+          <div class="github-graph-wrapper">
+            <img
+              class="github-graph"
+              src="https://github-readme-streak-stats.herokuapp.com?user=HarshaGuntreddi&theme=dark&hide_border=true&background=000000&ring=ffffff&fire=ffffff&currStreakLabel=888888&sideLabels=888888&dates=444444&stroke=1e1e1e&currStreakNum=ffffff&sideNums=ffffff"
+              alt="GitHub streak stats"
+              loading="lazy"
+            />
+          </div>
+          <div class="github-note">
+            // consistent activity matters more than buzzwords
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ HIRE ME ═══ -->
+    <section id="hire" class="section reveal-up">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">[ 006 ] ─── HIRE ME</div>
+          <h2 class="section-title">Contact</h2>
+          <p class="section-sub">
+            Open for Embedded / Robotics Safety (CPS), Backend/Platform, Infra/DevSecOps, and Applied AI/RAG.
+            Have something serious and want it shipped? Reach out.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+
+          <div class="ascii-card">
+            <h3 class="card-title">Direct</h3>
+            <div class="contact-info">
+              <div class="contact-row">
+                <div class="contact-label">Email</div>
+                <a class="contact-value" href="mailto:harshavguntreddi@gmail.com">harshavguntreddi@gmail.com</a>
+              </div>
+              <div class="contact-row">
+                <div class="contact-label">Phone / WhatsApp</div>
+                <a class="contact-value" href="tel:+917386117763">+91 7386117763</a>
+              </div>
+              <div class="contact-row">
+                <div class="contact-label">LinkedIn</div>
+                <a class="contact-value" href="https://www.linkedin.com/in/harshaguntreddi/" target="_blank" rel="noopener noreferrer">linkedin.com/in/harshaguntreddi ↗</a>
+              </div>
+              <div class="contact-row">
+                <div class="contact-label">GitHub</div>
+                <a class="contact-value" href="https://github.com/HarshaGuntreddi" target="_blank" rel="noopener noreferrer">github.com/HarshaGuntreddi ↗</a>
+              </div>
+              <div class="contact-row">
+                <div class="contact-label">Location</div>
+                <div class="contact-value">India — BLR / HYD / CHN onsite available</div>
+              </div>
+              <div class="contact-row">
+                <div class="contact-label">Resume</div>
+                <a class="contact-value" href="resume.pdf" target="_blank" rel="noopener noreferrer">resume.pdf ↗</a>
+              </div>
+            </div>
+            <div class="contact-btns">
+              <a class="btn-primary" href="mailto:harshavguntreddi@gmail.com">email me</a>
+              <a class="btn-ghost" href="resume.pdf" target="_blank" rel="noopener noreferrer">resume (PDF)</a>
+            </div>
+          </div>
+
+          <div class="ascii-card">
+            <h3 class="card-title">Send a Message</h3>
+            <!-- Replace YOUR_FORMSPREE_ID with your actual Formspree endpoint -->
+            <form id="hireForm" class="hire-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="name">Name <span class="accent">*</span></label>
+                  <input required type="text" id="name" name="name" placeholder="Your name" autocomplete="name" />
+                </div>
+                <div class="form-field">
+                  <label for="email">Work Email <span class="accent">*</span></label>
+                  <input required type="email" id="email" name="_replyto" placeholder="you@company.com" autocomplete="email" />
+                </div>
+                <div class="form-field form-field-full">
+                  <label for="role">Role / Type of Work</label>
+                  <input type="text" id="role" name="role" placeholder="Embedded Intern, Backend SWE, CPS Robotics, etc." />
+                </div>
+                <div class="form-field form-field-full">
+                  <label for="message">What you need <span class="accent">*</span></label>
+                  <textarea required id="message" name="message" rows="4" placeholder="Tell me the problem and timeline."></textarea>
+                </div>
+              </div>
+              <button class="btn-primary" type="submit">./send_message.sh →</button>
+              <p class="form-status" id="formStatus" aria-live="polite"></p>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <div class="footer-brand">[HARSHA] — Built by Harsha Vardhan Guntreddi</div>
+        <div class="footer-copy">Embedded • CPS Safety • Distributed Backend • Infra • AI/RAG // No copy-paste engineering.</div>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:harshavguntreddi@gmail.com">Email</a>
+        <a href="tel:+917386117763">Phone</a>
+        <a href="https://github.com/HarshaGuntreddi" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/harshaguntreddi/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
